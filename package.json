@@ -1,0 +1,25 @@
+{
+  "name": "risca-assembler-syntax-highlight",
+  "displayName": "RiscA Assembler Syntax Highlight",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.110.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "rasm",
+      "aliases": ["RiscA Assembler", "rasm"],
+      "extensions": [".rasm"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "rasm",
+      "scopeName": "source.rasm",
+      "path": "./syntaxes/rasm.tmLanguage.json"
+    }]
+  }
+}
