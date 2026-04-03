@@ -1,3 +1,1 @@
-# risca-assembler-syntax-highlight README
-
-RiscA assembler syntax highligh
+RiscA assembler syntax highligh extension for Visual Studio Code.
