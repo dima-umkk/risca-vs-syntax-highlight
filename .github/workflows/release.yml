@@ -30,11 +30,18 @@ jobs:
       - name: Package extension
         run: vsce package
 
+      - name: Bump version
+        run: npm version patch -m "bump version to %s"
+
+      - name: Get version
+        id: version
+        run: echo "version=$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
+
       - name: Create Release
         uses: softprops/action-gh-release@v2
         with:
-          tag_name: v${{ github.run_number }}
-          name: Release v${{ github.run_number }}
+          tag_name: v${{ steps.version.outputs.version  }}
+          name: Release v${{ steps.version.outputs.version  }}
           files: "*.vsix"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
