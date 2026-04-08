@@ -3,8 +3,6 @@
 	"name": "RiscA Assembler",
 	"patterns": [
 		{"include": "#labels"},
-		{"include": "#jump_targets_cond"},
-		{"include": "#jump_targets_djnz"},
 		{"include": "#jump_targets_simple"},
 		{"include": "#instructions"},
 		{"include": "#directives"},
@@ -23,32 +21,14 @@
 			"name": "entity.name.function.rasm"
 	    },
 		"jump_targets_simple": {
-			"match": "(?i)\\b(jmp|call|djnz)\\b\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
+			"match": "(?i)\\b(jmp|call)\\b\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
 			"captures": {
 				"1": { "name": "keyword.control.instruction.rasm" },
 				"2": { "name": "entity.name.function.rasm" }
 			}
 		},
-		"jump_targets_djnz": {
-			"match": "(?i)\\b(djnz)\\b\\s+(r\\d+)\\s*,\\s*([A-Za-z_][A-Za-z0-9_]*)\\b",
-			"captures": {
-				"1": { "name": "keyword.control.instruction.rasm" },
-				"2": { "name": "variable.language.register.rasm" },
-				"3": { "name": "entity.name.function.rasm" }
-			}
-		},
-		"jump_targets_cond": {
-			"match": "(?i)\\b(jmp)\\b\\s+(r\\d+)\\s*(==|!=|<=|>=|<|>)\\s*(r\\d+)\\s+([A-Za-z_][A-Za-z0-9_]*)\\b",
-			"captures": {
-				"1": { "name": "keyword.control.instruction.myasm" },
-				"2": { "name": "variable.language.register.myasm" },
-				"3": { "name": "keyword.operator.comparison.myasm" },
-				"4": { "name": "variable.language.register.myasm" },
-				"5": { "name": "entity.name.function.rasm" }
-			}
-		},
 		"instructions": {
-			"match": "(?i)\\b(ld\\.0|ld\\.b|ld\\.w|ld\\.d|ldi|st\\.b|st\\.w|st\\.d|add|sub|jmp|call|ret|push|pop|xor|and|or|not|djnz|shl|shr)\\b",
+			"match": "(?i)\\b(ldb|ldw|ldi|stb|stw|add|sub|jmp|call|movi|movh|mov|ret|push|pop|xor|and|or|not|shl|shr)\\b",
 			"name": "keyword.control.instruction.rasm"
 		},
 		"directives": {
@@ -85,7 +65,7 @@
 			]
 		},
 	    "registers": {
-    		"match": "(?i)\\b(r0|r1|r2|r3|r4|r5|r6|r7|r8|r9|r10|r11|r12|r13|r14|r15|sp|lr)\\b",
+    		"match": "(?i)\\b(r0|r1|r2|r3|r4|r5|r6|r7|r8|r9|r10|r11|r12|r13|r14|r15)\\b",
       		"name": "variable.language.register.rasm"
     	},
 		"numbers": {
