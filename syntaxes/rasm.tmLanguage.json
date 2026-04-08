@@ -28,7 +28,7 @@
 			}
 		},
 		"instructions": {
-			"match": "(?i)\\b(ldb|ldw|ldi|stb|stw|add|sub|jmp|call|movi|movh|mov|ret|push|pop|xor|and|or|not|shl|shr)\\b",
+			"match": "(?i)\\b(ldb|ldw|ldi|stb|stw|add|sub|jmp|call|beqz|bnez|bgtz|bltz|movi|movh|mov|ret|push|pop|xor|and|or|not|shl|shr)\\b",
 			"name": "keyword.control.instruction.rasm"
 		},
 		"directives": {
